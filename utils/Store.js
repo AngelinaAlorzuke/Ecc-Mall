@@ -1,5 +1,7 @@
 import Cookies from 'js-cookie';
-import { createContext, useReducer } from 'react';
+import {  useReducer } from 'react';
+import {createContext} from 'react';
+
 
 export const Store = createContext();
 const initialState = {
@@ -16,7 +18,7 @@ const initialState = {
       : '',
   },
   userInfo: Cookies.get('userInfo')
-    ? JSON.parse(Cookies.get('userInfo'))
+    ? JSON.parse((Cookies.get('userInfo')))
     : null,
 };
 

@@ -47,7 +47,7 @@ import {
         Cookies.set('userInfo', data);
         router.push(redirect || '/');
       } catch (err) {
-        enqueueSnackbar(getError(err), { variant: 'error' });
+        enqueueSnackbar(getError (err) , { variant: 'error' });
       }
     };
     return (
