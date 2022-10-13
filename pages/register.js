@@ -33,7 +33,7 @@ import {
       if (userInfo) {
         router.push('/');
       }
-    }, []);
+    }, [router, userInfo]);
   
     const classes = useStyles();
     const submitHandler = async ({ name, email, password, confirmPassword }) => {

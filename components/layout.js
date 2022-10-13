@@ -77,6 +77,7 @@ export default function Layout({ title, description, children }) {
   const [categories, setCategories] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get(`/api/products/categories`);
@@ -97,7 +98,7 @@ export default function Layout({ title, description, children }) {
 
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [fetchCategories]);
 
   const darkModeChangeHandler = () => {
     dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });

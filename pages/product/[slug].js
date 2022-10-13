@@ -59,17 +59,18 @@ export default function ProductScreen(props) {
     }
   };
 
-  const fetchReviews = async () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps, no-undef
+  const fetchReviews = useCallback(async () => {
     try {
       const { data } = await axios.get(`/api/products/${product._id}/reviews`);
       setReviews(data);
     } catch (err) {
       enqueueSnackbar(getError(err), { variant: 'error' });
     }
-  };
+  });
   useEffect(() => {
     fetchReviews();
-  }, []);
+  }, [fetchReviews]);
 
   if (!product) {
     return <div>Product Not Found</div>;
